@@ -14,7 +14,7 @@
 <li style="font-weight: 400;"><span style="font-weight: 400;">сгенерить файлы в /home/;</span></li>
 <li style="font-weight: 400;"><span style="font-weight: 400;">снять снапшот;</span></li>
 <li style="font-weight: 400;"><span style="font-weight: 400;">удалить часть файлов;</span></li>
-<li style="font-weight: 400;"><span style="font-weight: 400;">восстановится со снапшота.</span></li>
+<li style="font-weight: 400;"><span style="font-weight: 400;">восстановиться со снапшота.</span></li>
 </ol>
 <li style="font-weight: 400;"><span style="font-weight: 400;">* На дисках попробовать поставить btrfs/zfs &mdash; с кэшем, снапшотами и разметить там каталог /opt.</span></li>
 </ol>
