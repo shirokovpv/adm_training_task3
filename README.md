@@ -10,12 +10,12 @@
 <li style="font-weight: 400;"><span style="font-weight: 400;">/home - сделать том для снапшотов.</span></li>
 <li style="font-weight: 400;"><span style="font-weight: 400;">Прописать монтирование в fstab. Попробовать с разными опциями и разными файловыми системами (на выбор).</span></li>
 <li style="font-weight: 400;"><span style="font-weight: 400;">Работа со снапшотами:</span></li>
-<ol>
-<li style="font-weight: 400;"><span style="font-weight: 400;">сгенерить файлы в /home/;</span></li>
-<li style="font-weight: 400;"><span style="font-weight: 400;">снять снапшот;</span></li>
-<li style="font-weight: 400;"><span style="font-weight: 400;">удалить часть файлов;</span></li>
-<li style="font-weight: 400;"><span style="font-weight: 400;">восстановиться со снапшота.</span></li>
-</ol>
+<ul>
+<li>сгенерить файлы в /home/;</span></li>
+<li>снять снапшот;</span></li>
+<li>удалить часть файлов;</span></li>
+<li>восстановиться со снапшота.</span></li>
+</ul>
 <li style="font-weight: 400;"><span style="font-weight: 400;">* На дисках попробовать поставить btrfs/zfs &mdash; с кэшем, снапшотами и разметить там каталог /opt.</span></li>
 </ol>
 <p style="line-height: 100%; margin-bottom: 0cm;">&nbsp;</p>
@@ -23,3 +23,19 @@
 <p style="line-height: 108%; margin-bottom: 0.28cm;" align="justify"><span style="font-family: Roboto, serif;">Хостовая ОС: Ubuntu 24.04 Desktop, гостевая система Ubuntu 24.04 Server. VirtualBox версия 7.0.16_Ubuntu r162802</span></span></p>
 <p style="line-height: 108%; margin-bottom: 0.28cm;" align="justify">&nbsp;</p>
 <h3 class="western"><span style="font-family: Roboto, serif;"><span style="font-size: small;">Выполнение</span></span></h3>
+<p style="line-height: 108%; margin-bottom: 0.28cm;" align="justify"><span style="font-family: Roboto, serif;">TEXT HERE</span></span></p>
+<p style="line-height: 108%; margin-bottom: 0.28cm;" align="justify"><span style="font-family: Roboto, serif;">TEXT HERE</span></span></p>
+<p style="line-height: 108%; margin-bottom: 0.28cm;" align="justify"><span style="font-family: Roboto, serif;">TEXT HERE</span></span></p>
+<p style="line-height: 108%; margin-bottom: 0.28cm;" align="justify"><span style="font-family: Roboto, serif;">TEXT HERE</span></span></p>
+<p style="line-height: 108%; margin-bottom: 0.28cm;" align="justify"><span style="font-family: Roboto, serif;">TEXT HERE</span></span></p>
+<p style="line-height: 108%; margin-bottom: 0.28cm;" align="justify"><span style="font-family: Roboto, serif;">TEXT HERE</span></span></p>
+<p style="line-height: 108%; margin-bottom: 0.28cm;" align="justify"><span style="font-family: Roboto, serif;">TEXT HERE</span></span></p>
+<p style="line-height: 108%; margin-bottom: 0.28cm;" align="justify"><span style="font-family: Roboto, serif;">TEXT HERE</span></span></p>
+<p style="line-height: 108%; margin-bottom: 0.28cm;" align="justify"><span style="font-family: Roboto, serif;">TEXT HERE</span></span></p>
+<p style="line-height: 108%; margin-bottom: 0.28cm;" align="justify"><span style="font-family: Roboto, serif;">TEXT HERE</span></span></p>
+<p style="line-height: 108%; margin-bottom: 0.28cm;" align="justify"><span style="font-family: Roboto, serif;">TEXT HERE</span></span></p>
+<p style="line-height: 108%; margin-bottom: 0.28cm;" align="justify"><span style="font-family: Roboto, serif;">TEXT HERE</span></span></p>
+<p style="line-height: 108%; margin-bottom: 0.28cm;" align="justify"><span style="font-family: Roboto, serif;">TEXT HERE</span></span></p>
+<p style="line-height: 108%; margin-bottom: 0.28cm;" align="justify"><span style="font-family: Roboto, serif;">TEXT HERE</span></span></p>
+<p style="line-height: 108%; margin-bottom: 0.28cm;" align="justify"><span style="font-family: Roboto, serif;">TEXT HERE</span></span></p>
+<p style="line-height: 108%; margin-bottom: 0.28cm;" align="justify"><span style="font-family: Roboto, serif;">TEXT HERE</span></span></p>
