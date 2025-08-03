@@ -26,7 +26,7 @@
 <p style="line-height: 108%; margin-bottom: 0.28cm;" align="justify"><span style="font-family: Roboto, serif;">Используем такой стенд:</span></span></p>
 <img width="634" height="293" alt="изображение" src="https://github.com/user-attachments/assets/ae6769b2-ed4d-4c92-89c5-5259d9a690e8" />
 <p style="line-height: 100%; margin-bottom: 0cm;">&nbsp;</p>
-<p style="line-height: 108%; margin-bottom: 0.28cm;" align="justify"><span style="font-family: Roboto, serif;">1) Уменьшить том под / до 8G.</span></span></p>
+<p style="line-height: 108%; margin-bottom: 0.28cm;" align="justify"><span style="font-family: Roboto, serif;"><b>Уменьшить том под / до 8G.</b></span></span></p>
 <p style="line-height: 108%; margin-bottom: 0.28cm;" align="justify"><span style="font-family: Roboto, serif;">Подготовим временный том для / раздела:</span></span></p>
 <p style="line-height: 108%; margin-bottom: 0.28cm;" align="justify"><span style="font-family: Roboto, serif;">root@training:~# pvcreate /dev/sdb</span></span></p>
 <p style="line-height: 108%; margin-bottom: 0.28cm;" align="justify"><span style="font-family: Roboto, serif;">  Physical volume "/dev/sdb" successfully created.</span></span></p>
@@ -86,7 +86,7 @@
 <p style="line-height: 108%; margin-bottom: 0.28cm;" align="justify"><span style="font-family: Roboto, serif;">update-initramfs: Generating /boot/initrd.img-6.8.0-64-generic</span></span></p>
 <p style="line-height: 108%; margin-bottom: 0.28cm;" align="justify"><span style="font-family: Roboto, serif;">W: Couldn't identify type of root file system for fsck hook</span></span></p>
 <p style="line-height: 108%; margin-bottom: 0.28cm;" align="justify"><span style="font-family: Roboto, serif;"><strong>Пока не перезагружаемся и не выходим из под chroot - мы можем заодно перенести /var.</strong></span></span></p>
-<p style="line-height: 108%; margin-bottom: 0.28cm;" align="justify"><span style="font-family: Roboto, serif;">3) Выделить том под /var в зеркало.</span></span></p>
+<p style="line-height: 108%; margin-bottom: 0.28cm;" align="justify"><span style="font-family: Roboto, serif;"><b>Выделить том под /var в зеркало.</b></span></span></p>
 <p style="line-height: 108%; margin-bottom: 0.28cm;" align="justify"><span style="font-family: Roboto, serif;">На свободных дисках создаем зеркало:</span></span></p>
 <p style="line-height: 108%; margin-bottom: 0.28cm;" align="justify"><span style="font-family: Roboto, serif;">root@training:/# pvcreate /dev/sdc /dev/sdd</span></span></p>
 <p style="line-height: 108%; margin-bottom: 0.28cm;" align="justify"><span style="font-family: Roboto, serif;">  Physical volume "/dev/sdc" successfully created.</span></span></p>
@@ -118,18 +118,39 @@
 <p style="line-height: 108%; margin-bottom: 0.28cm;" align="justify"><span style="font-family: Roboto, serif;">  Volume group "vg_root" successfully removed</span></span></p>
 <p style="line-height: 108%; margin-bottom: 0.28cm;" align="justify"><span style="font-family: Roboto, serif;">root@training:~# pvremove /dev/sdb</span></span></p>
 <p style="line-height: 108%; margin-bottom: 0.28cm;" align="justify"><span style="font-family: Roboto, serif;">  Labels on physical volume "/dev/sdb" successfully wiped.</span></span></p>
-<p style="line-height: 108%; margin-bottom: 0.28cm;" align="justify"><span style="font-family: Roboto, serif;">2) Выделить том под /home</span></span></p>
-<p style="line-height: 108%; margin-bottom: 0.28cm;" align="justify"><span style="font-family: Roboto, serif;">TEXT HERE</span></span></p>
-<p style="line-height: 108%; margin-bottom: 0.28cm;" align="justify"><span style="font-family: Roboto, serif;">TEXT HERE</span></span></p>
-<p style="line-height: 108%; margin-bottom: 0.28cm;" align="justify"><span style="font-family: Roboto, serif;">TEXT HERE</span></span></p>
-<p style="line-height: 108%; margin-bottom: 0.28cm;" align="justify"><span style="font-family: Roboto, serif;">TEXT HERE</span></span></p>
-<p style="line-height: 108%; margin-bottom: 0.28cm;" align="justify"><span style="font-family: Roboto, serif;">TEXT HERE</span></span></p>
-
-<p style="line-height: 108%; margin-bottom: 0.28cm;" align="justify"><span style="font-family: Roboto, serif;">6) Работа со снапшотами</span></span></p>
-<p style="line-height: 108%; margin-bottom: 0.28cm;" align="justify"><span style="font-family: Roboto, serif;">TEXT HERE</span></span></p>
-<p style="line-height: 108%; margin-bottom: 0.28cm;" align="justify"><span style="font-family: Roboto, serif;">TEXT HERE</span></span></p>
-<p style="line-height: 108%; margin-bottom: 0.28cm;" align="justify"><span style="font-family: Roboto, serif;">TEXT HERE</span></span></p>
-<p style="line-height: 108%; margin-bottom: 0.28cm;" align="justify"><span style="font-family: Roboto, serif;">TEXT HERE</span></span></p>
-<p style="line-height: 108%; margin-bottom: 0.28cm;" align="justify"><span style="font-family: Roboto, serif;">TEXT HERE</span></span></p>
+<p style="line-height: 108%; margin-bottom: 0.28cm;" align="justify"><span style="font-family: Roboto, serif;"><b>Выделить том под /home</b></span></p>
+<p>Выделяем том под /home по тому же принципу что делали для /var:</p>
+<p>root@training:~# lvcreate -n LogVol_Home -L 2G /dev/ubuntu-vg</p>
+<p>Logical volume "LogVol_Home" created.</p>
+<p>root@training:~# mkfs.ext4 /dev/ubuntu-vg/LogVol_Home</p>
+<p>[root@training:~# mount /dev/ubuntu-vg/LogVol_Home /mnt/</p>
+<p>root@training:~# cp -aR /home/* /mnt/</p>
+<p>root@training:~# rm -rf /home/*</p>
+<p>root@training:~# umount /mnt</p>
+<p>root@training:~# mount /dev/ubuntu-vg/LogVol_Home /home/</p>
+<p style="line-height: 108%; margin-bottom: 0.28cm;" align="justify"><span style="font-family: Roboto, serif;">Правим fstab для автоматического монтирования /home:</span></span></p>
+<p style="line-height: 108%; margin-bottom: 0.28cm;" align="justify"><span style="font-family: Roboto, serif;">root@training:~# echo "/dev/mapper/ubuntu--vg-LogVol_Home  /home ext4 defaults 0 0" >> /etc/fstab</span></span></p>
+<p style="line-height: 108%; margin-bottom: 0.28cm;" align="justify"><span style="font-family: Roboto, serif;">После перезагрузки видим, что /home теперь отдельно:</span></span></p>
+<img width="644" height="492" alt="image" src="https://github.com/user-attachments/assets/e7fe18fd-573f-4ee8-a23d-051fa0be2e19" />
+<img width="681" height="120" alt="image" src="https://github.com/user-attachments/assets/615b7dc8-dc55-4088-aa6d-3cb5995436cc" />
+<p style="line-height: 100%; margin-bottom: 0cm;">&nbsp;</p>
+<p style="line-height: 108%; margin-bottom: 0.28cm;" align="justify"><span style="font-family: Roboto, serif;"><b>Работа со снапшотами</b></span></p>
+<p style="line-height: 108%; margin-bottom: 0.28cm;" align="justify"><span style="font-family: Roboto, serif;">Генерируем файлы в /home/:</span></span></p>
+<p style="line-height: 108%; margin-bottom: 0.28cm;" align="justify"><span style="font-family: Roboto, serif;">root@training:~# touch /home/file{1..20}</span></span></p>
+<img width="681" height="574" alt="image" src="https://github.com/user-attachments/assets/0a7141f2-f0fe-41a4-a0ac-60a221fdd043" />
+<p style="line-height: 100%; margin-bottom: 0cm;">&nbsp;</p>
+<p style="line-height: 108%; margin-bottom: 0.28cm;" align="justify"><span style="font-family: Roboto, serif;">Снимаем снапшот:</span></span></p>
+<p>root@training:~# lvcreate -L 100MB -s -n home_snap /dev/ubuntu-vg/LogVol_Home<br /> Logical volume "home_snap" created.<br />root@training:~#</p>
+<p style="line-height: 108%; margin-bottom: 0.28cm;" align="justify"><span style="font-family: Roboto, serif;">Удалим часть файлов:</span></span></p>
+<p style="line-height: 108%; margin-bottom: 0.28cm;" align="justify"><span style="font-family: Roboto, serif;">root@training:~# rm -f /home/file{11..20}</span></span></p>
+<img width="681" height="354" alt="image" src="https://github.com/user-attachments/assets/3a941b93-1e7d-4b03-a812-ccf4cbbca93c" />
+<p style="line-height: 100%; margin-bottom: 0cm;">&nbsp;</p>
+<p style="line-height: 108%; margin-bottom: 0.28cm;" align="justify"><span style="font-family: Roboto, serif;">Восстановим файлы из снапшота:</span></p>
+<p>root@training:~# umount /home<br />root@training:~# lvconvert --merge /dev/ubuntu-vg/home_snap<br /> Merging of volume ubuntu-vg/home_snap started.<br /> ubuntu-vg/LogVol_Home: Merged: 100,00%<br />root@training:~#</p>
+<p>root@training:~# mount /dev/mapper/ubuntu--vg-LogVol_Home /home<br />root@training:~# ls -l /home</p>
+<img width="681" height="575" alt="image" src="https://github.com/user-attachments/assets/eff94e25-974f-4b63-a4ce-8c1528a51f67" />
+<p style="line-height: 100%; margin-bottom: 0cm;">&nbsp;</p>
+<p style="line-height: 108%; margin-bottom: 0.28cm;" align="justify"><span style="font-family: Roboto, serif;">Файлов снова 20. Файлы успешно восстановлены с помощью снапшота.</span></span></p>
+<p style="line-height: 108%; margin-bottom: 0.28cm;" align="justify"><span style="font-family: Roboto, serif;">Задание завершено.</span></span></p>
 
 
