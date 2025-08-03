@@ -59,7 +59,6 @@
 <img width="777" height="69" alt="изображение" src="https://github.com/user-attachments/assets/fe394f49-bb73-4f49-841e-4376f6f12385" />
 <p style="line-height: 100%; margin-bottom: 0cm;">&nbsp;</p>
 <p style="line-height: 108%; margin-bottom: 0.28cm;" align="justify"><span style="font-family: Roboto, serif;">Перезагружаемся, чтобы работать с новым разделом.</span></span></p>
-<p style="line-height: 108%; margin-bottom: 0.28cm;" align="justify"><span style="font-family: Roboto, serif;">exit; reboot</span></span></p>
 <p style="line-height: 108%; margin-bottom: 0.28cm;" align="justify"><span style="font-family: Roboto, serif;">Посмотрим картину с дисками после перезагрузки:</span></span></p>
 <img width="648" height="319" alt="изображение" src="https://github.com/user-attachments/assets/650d448f-3a3f-4eda-98fe-3df98c426b7d" />
 <p style="line-height: 100%; margin-bottom: 0cm;">&nbsp;</p>
@@ -95,7 +94,7 @@
 <p style="line-height: 108%; margin-bottom: 0.28cm;" align="justify"><span style="font-family: Roboto, serif;">root@training:/# vgcreate vg_var /dev/sdc /dev/sdd</span></span></p>
 <p style="line-height: 108%; margin-bottom: 0.28cm;" align="justify"><span style="font-family: Roboto, serif;">  Volume group "vg_var" successfully created</span></span></p>
 <p style="line-height: 108%; margin-bottom: 0.28cm;" align="justify"><span style="font-family: Roboto, serif;">root@training:/# lvcreate -L 950M -m1 -n lv_var vg_var</span></span></p>
-<p style="line-height: 108%; margin-bottom: 0.28cm;" align="justify"><span style="font-family: Roboto, serif;">T Rounding up size to full physical extent 952,00 MiB</span></span></p>
+<p style="line-height: 108%; margin-bottom: 0.28cm;" align="justify"><span style="font-family: Roboto, serif;"> Rounding up size to full physical extent 952,00 MiB</span></span></p>
 <p style="line-height: 108%; margin-bottom: 0.28cm;" align="justify"><span style="font-family: Roboto, serif;">  Logical volume "lv_var" created.</span></span></p>
 <p style="line-height: 108%; margin-bottom: 0.28cm;" align="justify"><span style="font-family: Roboto, serif;">Создаем на нем ФС и перемещаем туда /var:</span></span></p>
 <p style="line-height: 108%; margin-bottom: 0.28cm;" align="justify"><span style="font-family: Roboto, serif;">root@training:/# mkfs.ext4 /dev/vg_var/lv_var</span></span></p>
@@ -111,9 +110,7 @@
 <p style="line-height: 108%; margin-bottom: 0.28cm;" align="justify"><span style="font-family: Roboto, serif;">Правим fstab для автоматического монтирования /var:</span></span></p>
 <p style="line-height: 108%; margin-bottom: 0.28cm;" align="justify"><span style="font-family: Roboto, serif;">root@training:/# echo "`blkid | grep var: | awk '{print $2}'` \</span></span></p>
 <p style="line-height: 108%; margin-bottom: 0.28cm;" align="justify"><span style="font-family: Roboto, serif;"> /var ext4 defaults 0 0" >> /etc/fstab</span></span></p>
-<p style="line-height: 108%; margin-bottom: 0.28cm;" align="justify"><span style="font-family: Roboto, serif;">После чего можно успешно перезагружаться в новый (уменьшенный root) и удалять
-временную Volume Group:</span></span></p>
-<p style="line-height: 108%; margin-bottom: 0.28cm;" align="justify"><span style="font-family: Roboto, serif;">exit; reboot</span></span></p>
+<p style="line-height: 108%; margin-bottom: 0.28cm;" align="justify"><span style="font-family: Roboto, serif;">После чего можно успешно перезагружаться в новый (уменьшенный root) и удалять временную Volume Group:</span></span></p>
 <p style="line-height: 108%; margin-bottom: 0.28cm;" align="justify"><span style="font-family: Roboto, serif;">root@training:~# lvremove /dev/vg_root/lv_root</span></span></p>
 <img width="799" height="125" alt="изображение" src="https://github.com/user-attachments/assets/655870d1-431e-4e99-8db9-2823b2f97e92" />
 <p style="line-height: 100%; margin-bottom: 0cm;">&nbsp;</p>
@@ -122,20 +119,12 @@
 <p style="line-height: 108%; margin-bottom: 0.28cm;" align="justify"><span style="font-family: Roboto, serif;">root@training:~# pvremove /dev/sdb</span></span></p>
 <p style="line-height: 108%; margin-bottom: 0.28cm;" align="justify"><span style="font-family: Roboto, serif;">  Labels on physical volume "/dev/sdb" successfully wiped.</span></span></p>
 <p style="line-height: 108%; margin-bottom: 0.28cm;" align="justify"><span style="font-family: Roboto, serif;">2) Выделить том под /home</span></span></p>
-<p style="line-height: 108%; margin-bottom: 0.28cm;" align="justify"><span style="font-family: Roboto, serif;">Выделяем том под /home по тому же принципу что делали для /var:</span></span></p>
-<p style="line-height: 108%; margin-bottom: 0.28cm;" align="justify"><span style="font-family: Roboto, serif;">root@training:~# lvcreate -n LogVol_Home -L 2G /dev/ubuntu-vg</span></span></p>
-<p style="line-height: 108%; margin-bottom: 0.28cm;" align="justify"><span style="font-family: Roboto, serif;">  Logical volume "LogVol_Home" created.</span></span></p>
-<p style="line-height: 108%; margin-bottom: 0.28cm;" align="justify"><span style="font-family: Roboto, serif;">root@training:~# mkfs.ext4 /dev/ubuntu-vg/LogVol_Home</span></span></p>
-<img width="662" height="288" alt="изображение" src="https://github.com/user-attachments/assets/9a4b5d95-3e8e-4e72-b1dc-bf19aa968cdd" />
-<p style="line-height: 100%; margin-bottom: 0cm;">&nbsp;</p>
-<p style="line-height: 108%; margin-bottom: 0.28cm;" align="justify"><span style="font-family: Roboto, serif;">root@training:~# mount /dev/ubuntu-vg/LogVol_Home /mnt/</span></span></p>
-<p style="line-height: 108%; margin-bottom: 0.28cm;" align="justify"><span style="font-family: Roboto, serif;">root@training:~# cp -aR /home/* /mnt/</span></span></p>
-<p style="line-height: 108%; margin-bottom: 0.28cm;" align="justify"><span style="font-family: Roboto, serif;">root@training:~# rm -rf /home/*</span></span></p>
-<p style="line-height: 108%; margin-bottom: 0.28cm;" align="justify"><span style="font-family: Roboto, serif;">root@training:~# umount /mnt</span></span></p>
-<p style="line-height: 108%; margin-bottom: 0.28cm;" align="justify"><span style="font-family: Roboto, serif;">root@training:~# mount /dev/ubuntu-vg/LogVol_Home /home/</span></span></p>
-<p style="line-height: 108%; margin-bottom: 0.28cm;" align="justify"><span style="font-family: Roboto, serif;">5) Правим fstab для автоматического монтирования /home:</span></span></p>
-<p style="line-height: 108%; margin-bottom: 0.28cm;" align="justify"><span style="font-family: Roboto, serif;">root@training:~# echo "`blkid | grep Home | awk '{print $2}'` \</span></span></p>
-<p style="line-height: 108%; margin-bottom: 0.28cm;" align="justify"><span style="font-family: Roboto, serif;"> /home xfs defaults 0 0" >> /etc/fstab</span></span></p>
+<p style="line-height: 108%; margin-bottom: 0.28cm;" align="justify"><span style="font-family: Roboto, serif;">TEXT HERE</span></span></p>
+<p style="line-height: 108%; margin-bottom: 0.28cm;" align="justify"><span style="font-family: Roboto, serif;">TEXT HERE</span></span></p>
+<p style="line-height: 108%; margin-bottom: 0.28cm;" align="justify"><span style="font-family: Roboto, serif;">TEXT HERE</span></span></p>
+<p style="line-height: 108%; margin-bottom: 0.28cm;" align="justify"><span style="font-family: Roboto, serif;">TEXT HERE</span></span></p>
+<p style="line-height: 108%; margin-bottom: 0.28cm;" align="justify"><span style="font-family: Roboto, serif;">TEXT HERE</span></span></p>
+
 <p style="line-height: 108%; margin-bottom: 0.28cm;" align="justify"><span style="font-family: Roboto, serif;">6) Работа со снапшотами</span></span></p>
 <p style="line-height: 108%; margin-bottom: 0.28cm;" align="justify"><span style="font-family: Roboto, serif;">TEXT HERE</span></span></p>
 <p style="line-height: 108%; margin-bottom: 0.28cm;" align="justify"><span style="font-family: Roboto, serif;">TEXT HERE</span></span></p>
